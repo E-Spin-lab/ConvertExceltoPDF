@@ -9,7 +9,11 @@ from pyhanko.pdf_utils.incremental_writer import IncrementalPdfFileWriter
 from PyPDF2 import PdfReader, PdfWriter
 
 ## Declare Flags
-parser = argparse.ArgumentParser(description='Batch convert xlsx files to pdf')
+DESCRIPTION_START = f'Python script to convert multiple .xlsx files to pdf at once'
+DESCRIPTION_END =   f'Example:  python ConvertExcelPDF.py --directory \"PATH/TO/EXCELFiles/\" \
+                    --password "1234" \
+                    --output "pdf_outputs"'
+parser = argparse.ArgumentParser(description=DESCRIPTION_START, epilog=DESCRIPTION_END)
 parser.add_argument('--directory', action="store", dest='directory', default=0)
 parser.add_argument('--password ', action="store", dest='password', default=0)
 parser.add_argument('--output', action="store", dest='output', default='pdf_outputs')
@@ -20,7 +24,7 @@ OUTPUTFOLDER = args.output
 
 ## Check Flags
 if DIRECTORY == 0:
-    print("please include the full path to the directory that contains the .xlsx files \n Example python .\ConvertExcelPDF.py --directory \"C:/Users/Your.Name/Downloads/Example Reports/\" --password password \n (note file paths with spaces must be enclosed by quotation marks)" , flush=True)
+    print("please include the full path to the directory that contains the .xlsx files \n Example python ConvertExcelPDF.py --directory \"PATH/TO/EXCELFiles/\" --password 1234 \n (note file paths with spaces must be enclosed by quotation marks)" , flush=True)
     quit()
 else:
     Directory = DIRECTORY.replace("\\", "/")
@@ -29,7 +33,7 @@ else:
     else:
         Directory = Directory + "*.xlsx"
 if PASSWORD == 0:
-    print("please include an encryption password \n Example python .\ConvertExcelPDF.py --directory C:/Users/Your.Name/Downloads/Example Reports// --password password \n (note file paths with spaces must be enclosed by quotation marks)", flush=True)
+    print("please include an encryption password \n Example python ConvertExcelPDF.py --directory \"PATH/TO/EXCELFiles/\" --password 1234 \n (note file paths with spaces must be enclosed by quotation marks)", flush=True)
     quit()
 
 ## Create output folder
@@ -38,7 +42,7 @@ if not os.path.exists(OutputDirectory):
     os.makedirs(OutputDirectory)
 
 
-## Loop through all ".xlsx files in specified directory"
+## Loop through all .xlsx files in specified directory
 ExcelList = glob.glob(Directory)
 for file_path in ExcelList:
     file_name = file_path.split("\\")[-1].split(".xlsx")[0]
@@ -104,7 +108,7 @@ for file_path in ExcelList:
         append_signature_field(w, 
             SigFieldSpec(sig_field_name="Signature",
             on_page = 0,
-            box = (VerticalMargin, BottomSpace - 25, 600, BottomSpace - 100),
+            box = (VerticalMargin, BottomSpace - 25, table_w, BottomSpace - 100),
             visible_sig_settings = VisibleSigSettings(rotate_with_page=True)
             )
         )
