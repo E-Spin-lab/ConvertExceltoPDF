@@ -1,5 +1,4 @@
-# Convert Migration Verification Reports to pdf
-
+# Convert Excel Tables to PDF
 This repository contains ConvertExcelPDF, a python script for converting excel documents to pdfs. Pdfs are created with a signature field and only certain permissions enabled.
 
 ## PDF permissions
