@@ -1,9 +1,10 @@
-# Convert Excel Tables to PDF
-This repository contains ConvertExcelPDF, a python script for converting excel documents to pdfs. Pdfs are created with a signature field and only certain permissions enabled.
+# Convert Excel Tables to PDFs
+
+This repository contains ConvertExcelPDF, a python script for converting excel documents to PDFs. PDFs are created with a signature field and only certain permissions enabled.
 
 ## PDF permissions
 
-#### PDF will be created with the following permissions enabled
+### PDF will be created with the following permissions enabled
 
 -Printing
 
@@ -15,7 +16,7 @@ This repository contains ConvertExcelPDF, a python script for converting excel d
 
 -Creation of Template Pages
 
-#### PDF will be created with the following permissions disabled
+### PDF will be created with the following permissions disabled
 
 -Changing the Document
 
@@ -34,7 +35,7 @@ The python script utilizes the following python libraries: argparse, glob, os, p
 To create a virtual environment with all required libraries run the following code (recommended)
 
         conda env create -f requirements.yml
-To acivate the nely created environment run
+To activate the newly created environment run
 
         conda activate ExcelPDF
 
@@ -50,4 +51,4 @@ Example
 
 --password: (Required) Password that is needed to change the pdf permissions.
 
---output: (Optional) Directory within filepath where pdfs will be saved. Default string is pdf_output
+--output: (Optional) Directory within filepath where PDFs will be saved. Default string is pdf_output
