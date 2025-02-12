@@ -84,7 +84,7 @@ for file_path in ExcelList:
 
     table.setStyle(style)
 
-    ## Determine table dimentions for pdf
+    ## Determine table dimensions for pdf
     t = Table(data, style=style)
     table_w, table_h = t.wrap(0, 0)
     BottomSpace = 150
