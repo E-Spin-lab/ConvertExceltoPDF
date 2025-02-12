@@ -30,7 +30,7 @@ This repository contains ConvertExcelPDF, a python script for converting excel d
 
 ## Requirements
 
-The python script utilizes the following python libraries: argparse, glob, os, pandas, openpyxl, pyhanko, reportlab, and PyPDF2.
+The python script utilizes the following python libraries: argparse, glob, os, pandas, openpyxl, pyhanko, reportlab, PyPDF2, and openpyxel.
 
 To create a virtual environment with all required libraries run the following code (recommended)
 
